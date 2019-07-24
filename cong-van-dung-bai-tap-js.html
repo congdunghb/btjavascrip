@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Demo</title>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="assets/vendor/jquery.min.js"></script>
+  <!-- <script type="text/javascript" src="assets/vendor/bootstrap.min.js"></script> -->
+  <!--
+  <link rel="stylesheet" href="assets/vendor/bootstrap.css"> -->
+  <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!--
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <select id="select1">
+    <option value="choose">--Choose--</option>
+    <option value=".net">.net</option>
+    <option value="angular">Angular</option>
+    <option value="java">Java</option>
+    <option value="test">Test</option>
+  </select>
+  <select id="select2"></select>
+</body>
+<script>
+  var students = [
+    { id: 1, name: 'tran van a', className: '.net' },
+    { id: 2, name: 'tran van b', className: '.net' },
+    { id: 3, name: 'tran van c', className: 'angular' },
+    { id: 4, name: 'tran van d', className: 'angular' },
+    { id: 5, name: 'tran van e', className: 'java' },
+    { id: 6, name: 'tran van f', className: 'java' },
+    { id: 7, name: 'tran van g', className: 'java' },
+    { id: 8, name: 'tran van h', className: 'test' },
+    { id: 9, name: 'tran van i', className: 'test' },
+    { id: 10, name: 'tran van j', className: 'test' }
+  ]
+  document.getElementById("select1").onchange = function() {
+    document.getElementById("select2").innerHTML = '' ;
+    var lang = this.options[this.selectedIndex].value;
+    for (var i=0; i<students.length; i++) {
+      if(students[i].className === lang) {
+          document.getElementById("select2").innerHTML += '<option>'+ students[i].name+'</option>';
+      }
+    }
+  }
+</script>
+</html>
